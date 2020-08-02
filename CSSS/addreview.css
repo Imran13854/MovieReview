@@ -22,7 +22,7 @@ ul{
 ul li{
 	display:inline-block;
 }
-ul li a{
+.button ul li a{
 	text-decoration: none;
 	font-family:consolas;
 	color:white;
