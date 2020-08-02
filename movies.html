@@ -1,0 +1,157 @@
+<?php
+	require_once "../controllers/searchController.php";
+?>
+<html>
+
+	<title>Movies</title>
+	
+	<head>
+		<link rel="stylesheet" type="text/css" href="CSSS/movie.css">
+		
+		<link rel="stylesheet" type="text/css" href="CSSS/commonCategory.css">
+		<script src="https://kit.fontawesome.com/1e099de9d8.js"></script>
+	</head>
+	
+	
+	
+	
+	
+	<body>
+		<header>
+		
+		<form  action="" method="POST">
+		<?php require_once "../controllers/userCheck.php"?>
+			<center>
+			<h1>Movies</h1>
+			</center>
+						
+						<div class="button">
+							<ul>
+							
+								<li class="inactive"><a href="index.html">Home</a></li>
+								<li class="active"><a href="movies.html">Movies</a></li>
+								
+								<li class="inactive"><a href="intheater.html">In Theaters</a></li>
+								<li class="inactive"><a href="comingsoon.html">Coming soon</a></li>
+								<li class="inactive"><a href="bestmovie.html">Best Movies</a></li>
+								<li  class="inactive"><a href="addreview.html">Add Reviews</a></li>
+								<?php
+								if($_COOKIE['youare']=='1'){?>
+								<li  class="inactive"><a href="addadmin.html">Add Admin</a></li>
+								<li  class="inactive"><a href="pendingAndFavReview.php?id=<?php echo md5($user) ?>">Pending Reviews</a></li>
+								
+								
+								<?php } 
+								
+								else{?>
+
+								<li  class="inactive"><a href="pendingAndFavReview.php?id=<?php echo md5($user) ?>">Favorite Reviews</a></li>
+								
+								
+								<?php } ?>
+								
+								<li  class="inactive"><a href="about.html">About</a></li>
+							</ul>
+						</div>
+						
+								
+				
+				<?php require_once "category.php" ?>
+						
+						
+				
+				
+		<br> <br> <br> <br> <br> <br> <br> <br>
+		<?php
+			
+			$query="SELECT * FROM addreview ORDER BY id DESC";
+			$reviews=get($query);
+			
+				echo "<center>";
+					echo "<h1>"."All Movie Reviews"."</h1>";
+				echo "</center>";	
+					
+			if(mysqli_num_rows($reviews) > 0)
+			{
+				
+				while($rows = mysqli_fetch_assoc($reviews))
+				{
+					
+					
+					
+					$filepath = 'Photo/' . $rows['img'];
+					$moviename=$rows["name"];
+					$id=$rows['id'];
+					echo "<table>";
+					echo "<tr>";
+					
+					echo "<td   class='images'>"."<a href='readreview.php?mid=$id'>"."<img src=$filepath width='200px' height='200px'>"."</a>"."<br>".
+					"<center>"."<p>".$moviename."</p>"."</center>"."</td>";
+					
+					
+					
+					echo "<td>";
+					echo "<div class='point'>";
+					echo "<table>";
+			
+					echo "<tr>";
+					echo "<td class='name'>"."Name"."</td>";
+					echo "<td class='disname'>".": ".$moviename."</td>";
+					echo "</tr>";
+					
+					
+					
+					echo "<tr>";
+					echo "<td class='name'>"."Director"."</td>";
+					echo "<td class='disname'>".": ".$rows["director"]."</td>";
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<td class='name'>"."Cast"."</td>";
+					echo "<td class='disname'>".": ".$rows["cast"]."</td>";
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<td class='name'>"."Relase Date"."</td>";
+					echo "<td class='disname'>".": ".$rows["month"]." ".$rows["day"].",".$rows["year"]."</td>";
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<td class='name'>"."Category"."</td>";
+					echo "<td class='disname'>".": ".$rows["category"]."</td>";
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<td class='name'>"."Genre"."</td>";
+					echo "<td class='disname'>".": ".$rows["genre"]."</td>";
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<td class='name'>"."IMDB"."</td>";
+					echo "<td class='disname'>".": ".$rows["imdb"]."</td>";
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<td valign='top' class='name'>"."Description"."</td>";
+					echo "<td class='disname'>".":".$rows["description"]."</td>";
+					echo "</tr>";
+					echo "</table>";
+					
+					echo "</div>";
+					echo "</td>";
+					echo "</tr>";
+					echo "</table>";
+				}
+			}
+		
+		?>
+		
+
+		</form>
+		<center>&copy; Copyright 2020 Movie review site</center>
+		</header>
+	</body>
+
+
+
+</html>

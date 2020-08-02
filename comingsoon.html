@@ -1,0 +1,70 @@
+<?php 
+require_once "../controllers/comingSoonController.php";
+require_once "../controllers/searchController.php";
+?>
+<html>
+
+	<title>Coming Soon</title>
+	<head>
+		<link rel="stylesheet" type="text/css" href="CSSS/commonCategory.css">
+		<link rel="stylesheet" type="text/css" href="CSSS/comingsoon.css">
+		
+		<script src="https://kit.fontawesome.com/1e099de9d8.js"></script>
+		
+	
+	</head>
+	
+	
+	
+	
+	<body>
+		<header>
+		
+		<form action="" method="post" enctype="multipart/form-data">
+		<?php require_once "../controllers/userCheck.php"?>	
+		<center>
+			<h1 id="h">Coming Soon</h1>
+		</center>
+						<div class="button">
+							<ul>
+								<li class="inactive"><a href="Homepage.php">Home</a></li>
+								<li class="inactive"><a href="movies.php">Movies</a></li>
+								
+								<li class="inactive"><a href="intheater.php">In Theaters</a></li>
+								<li class="active"><a href="comingsoon.php">Coming soon</a></li>
+								<li class="inactive"><a href="bestmovie.php">Best Movies</a></li>
+								<li  class="inactive"><a href="addreview.php">Add Reviews</a></li>
+								<?php
+								if($_COOKIE['youare']=='1'){?>
+								<li  class="inactive"><a href="addadmin.php">Add Admin</a></li>
+								<li  class="inactive"><a href="pendingAndFavReview.php?id=<?php echo md5($user) ?>">Pending Reviews</a></li>
+								
+								
+								<?php } 
+								
+								else{?>
+
+								<li  class="inactive"><a href="pendingAndFavReview.php?id=<?php echo md5($user) ?>">Favorite Reviews</a></li>
+								
+								
+								<?php } ?>
+								
+								<li  class="inactive"><a href="about.php">About</a></li>
+							</ul>
+						</div>
+				
+				
+				<?php require_once "comingSoonMovieShow.php" ?>
+		
+			<center>&copy; Copyright 2020 Movie review site</center>	
+				
+			
+		
+		</form>
+		</header>
+		
+	</body>
+
+
+
+</html>
