@@ -1,7 +1,4 @@
-<?php 
-require_once "../controllers/addReviewController.php";
-require_once "../controllers/searchController.php";
-?>
+
 <html>
 
 	<title>Add Review</title>
@@ -9,7 +6,7 @@ require_once "../controllers/searchController.php";
 	<head>
 		<link rel="stylesheet" type="text/css" href="CSSS/addreview.css">
 		
-		<script src="https://kit.fontawesome.com/1e099de9d8.js"></script>
+		
 	</head>
 	
 	
@@ -19,7 +16,7 @@ require_once "../controllers/searchController.php";
 	<header>
 		
 	
-		<form method="POST" action="" id="comment" enctype="multipart/form-data">
+		<form">
 		<br>
 			<center>
 			<h1>Add Review</h1>
@@ -31,30 +28,14 @@ require_once "../controllers/searchController.php";
 							<ul>
 							
 						
-								<li class="inactive"><a href="Homepage.php">Home</a></li>
-								<li class="inactive"><a href="movies.php">Movies</a></li>
+								<li  class="inactive"> <a href="index.html">Home</a></li>
+								<li  class="inactive"><a href="movies.html">Movies</a></li>
 								
-								<li class="inactive"><a href="intheater.php">In Theaters</a></li>
-								<li class="inactive"><a href="comingsoon.php">Coming soon</a></li>
-								<li class="inactive"><a href="bestmovie.php">Best Movies</a></li>
-								
-								<li  class="active"><a href="addreview.php">Add Reviews</a></li>
-								<?php
-								if($_COOKIE['youare']=='1'){?>
-								<li  class="inactive"><a href="addadmin.php">Add Admin</a></li>
-								<li  class="inactive"><a href="pendingAndFavReview.php?id=<?php echo md5($user) ?>">Pending Reviews</a></li>
-								
-								
-								<?php } 
-								
-								else{?>
-
-								<li  class="inactive"><a href="pendingAndFavReview.php?id=<?php echo md5($user) ?>">Favorite Reviews</a></li>
-								
-								
-								<?php } ?>
-								
-								<li  class="inactive"><a href="about.php">About</a></li>
+								<li  class="inactive"><a href="intheater.html">In Theaters</a></li>
+								<li  class="inactive"><a href="comingsoon.html">Coming soon</a></li>
+								<li  class="inactive"><a href="bestmovie.html">Best Movies</a></l
+								<li  class="active"><a href="addreview.html">Add Review</a></li>
+								<li  class="inactive"><a href="about.html">About</a></li>
 							</ul>
 						</div>
 		
@@ -64,14 +45,14 @@ require_once "../controllers/searchController.php";
 					
 					<center><h1>Add Movie Review</h1></center>
 						
-						<center><span style="color:red;"><h2><?php echo $pending_message;?></h2></span></center>
+						<center><span style="color:red;"></span></center>
 				<table>
 					<tr>
 						<td align="left"> 
 						<p>Movie Name</p>  
 						</td>
 						<td>
-							<input type="text" style="width:580px;" name="mname" value="<?php echo $mname;?>" placeholder="Enter Movie name">
+							<input type="text" style="width:580px;" name="mname" value="" placeholder="Enter Movie name">
 						</td>
 						<td>
 							<small><span style="color:yellow"><?php echo $err_mname;?></span></small>
@@ -82,7 +63,7 @@ require_once "../controllers/searchController.php";
 						<p>Director</p>  
 						</td>
 						<td>
-							<input type="text" style="width:580px;" name="director" value="<?php echo $director;?>" placeholder="Enter Director name">
+							<input type="text" style="width:580px;" name="director" value="" placeholder="Enter Director name">
 						</td>
 						<td>
 							<small><span style="color:yellow"><?php echo $err_director;?></span></small>
@@ -94,7 +75,7 @@ require_once "../controllers/searchController.php";
 						<p>Cast</p>
 						</td>
 						<td>
-						<input type="text" style="width:580px;" name="cast" value="<?php echo $cast;?>" placeholder="Enter Movie Cast">
+						<input type="text" style="width:580px;" name="cast" value="" placeholder="Enter Movie Cast">
 						</td>
 						<td>
 							<small><span style="color:yellow"><?php echo $err_cast;?></span></small>
@@ -107,48 +88,17 @@ require_once "../controllers/searchController.php";
 						<td>
 						<select name = "month" style="height: 25px;width: 105px">
 							<option>Month</option>
-							<?php 
-								if($date==1){ ?>
-								<option selected="true">
-								
-								<?php echo $month;?></option>
-								<?php } ?>
-							<?php
-							for($month = 0; $month < 12; $month++){
-								echo"<option value = '".$monthlist[$month]."'>".$monthlist[$month]."</option>";
-							}
-						    ?>
+							
 						
 						
 						</select>
 						<select name = "day" style="height: 25px;width: 105px">
 							<option>Day</option>
-							<?php 
-								if($dayy==1){ ?>
-								<option selected="true">
-								
-								<?php echo $day;?></option>
-								<?php } ?>
-							<?php
-							for($day = 1; $day <= 31; $day++){
-								echo "<option value = '".$day."'>".$day."</option>";
-							}
-							?>
+							
 						</select>
 						<select name = "year" style="height: 25px;width: 105px">
 							<option>Year</option>
-							<?php 
-								if($yearr==1){ ?>
-								<option selected="true">
-								
-								<?php echo $year;?></option>
-								<?php } ?>
-					
-							<?php
-							for($year = 2025; $year >= 1900; $year--){
-								echo "<option value = '".$year."'>".$year."</option>";
-							}
-							?>
+							
 						</select>	
 						</td>
 					<td>
@@ -165,12 +115,7 @@ require_once "../controllers/searchController.php";
 							<select name="category">
 								
 								<option selected="true">Choose a Category</option>
-								<?php 
-								if($cat==1){ ?>
-								<option selected="true">
 								
-								<?php echo $category;?></option>
-								<?php } ?>
 								<option>English</option>
 								<option>Hindi</option>
 								<option>Tamil</option>
@@ -196,12 +141,7 @@ require_once "../controllers/searchController.php";
 							<select name="genre"  style="width: 172px;">
 							
 								<option selected="true">Choose a Genre</option>
-								<?php 
-								if($gen==1){ ?>
-								<option selected="true">
 								
-								<?php echo $genre;?></option>
-								<?php } ?>
 								<option>Action</option>
 								<option>Thriller</option>
 								<option>Action,Romantic</option>
@@ -223,7 +163,7 @@ require_once "../controllers/searchController.php";
 							<p>IMDB</p>
 						</td>
 						<td>
-							<input style="width:580px;"  type="text"  name="imdb" value="<?php echo $imdb;?>" placeholder="Enter IMDB Rating">
+							<input style="width:580px;"  type="text"  name="imdb" value="" placeholder="Enter IMDB Rating">
 						</td>
 						<td>
 							<small><span style="color:yellow"><?php echo $err_imdb;?></span></small>
@@ -245,7 +185,7 @@ require_once "../controllers/searchController.php";
 							<p>Description</p>
 						</td>
 						<td>
-							<textarea style=" resize: none; width:580px; height:300px;"  name="description" placeholder="Enter Movie Description..." form="comment"><?php echo $description;?></textarea>
+							<textarea style=" resize: none; width:580px; height:300px;"  name="description" placeholder="Enter Movie Description..." form="comment"></textarea>
 						</td>
 						<td>
 							<small><span style="color:yellow"><?php echo $err_description;?></span></small>
@@ -256,7 +196,7 @@ require_once "../controllers/searchController.php";
 						
 					
 				</div>
-				<?php require_once "../controllers/userCheck.php"?>
+				
 			</form>
 			
 		</header>
