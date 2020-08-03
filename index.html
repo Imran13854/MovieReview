@@ -35,8 +35,7 @@
 							</ul>
 						</div>
 			
-			<center><p style="margin-top:200px;color:White;  "><b>If you are a phone user, Please turn on desktop mode from your browser settings for 
-			better experience!</b></p></center>
+			<center><p style="margin-top:200px;color:White;" id="text" ><b></b></p></center>
 				
 			<div class="spotlight-box">
 			
@@ -134,6 +133,16 @@
 		</form>
 		<center>&copy; Copyright 2020 Movie review site</center>
 		</header>
+		
+		<script type="text/javascript">
+		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		var element = document.getElementById('text');
+		if (isMobile) {
+  			element.innerHTML = "Please turn on desktop mode from your browser settings for better experience!";
+		} else {
+			element.innerHTML = " Thank for Visiting!";
+		}
+	</script>
 	</body>
 
 
