@@ -48,11 +48,8 @@ p{
 	margin-left:80px;
 	
 	
-	padding:50px;
-	
-	
-	
-	width:800px;
+	padding:30px;
+	width:70%;
 	
 	background: rgba(255,0,25,.1);
 	border: 1px solid #4CAF50;
@@ -64,7 +61,8 @@ p{
 }
 td.images img{
 	margin-top:80px;
-	margin-left:80px;
+	margin-left:50px;
+	margin-right:20px;
 	border-radius:10px;
 	
 }
