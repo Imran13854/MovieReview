@@ -49,6 +49,9 @@ p{
 	
 	
 	padding:30px;
+	
+	
+	
 	width:70%;
 	
 	background: rgba(255,0,25,.1);
@@ -85,6 +88,7 @@ ul.cat{
 	float:left;
 	list-style-type: none;
 	margin:10px;
+	width:100%;
 	
 }
 
@@ -109,3 +113,4 @@ ul li{
 	
 	margin:auto;
 }
+
