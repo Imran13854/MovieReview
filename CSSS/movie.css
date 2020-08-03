@@ -6,7 +6,7 @@ body{
 header{
 	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Photo/cover5.jpg);
 
-	height:200px;
+	height:220px;
 	width:100%;
 	
 	
@@ -44,7 +44,7 @@ p{
 }
 .point{
 	
-	margin-top:100px;
+	margin-top:80px;
 	margin-left:80px;
 	
 	
