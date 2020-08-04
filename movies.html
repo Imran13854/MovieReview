@@ -1,13 +1,14 @@
 
+
 <html>
 
 	<title>Movies</title>
 	
 	<head>
 		<link rel="stylesheet" type="text/css" href="CSSS/movie.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="CSSS/commonCategory.css">
 		
+		<link rel="stylesheet" type="text/css" href="CSSS/commonCategory.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	
 	
@@ -50,7 +51,9 @@
 												<li class="H"><a href="#">Malayalam</a></li>
 												<li class="H"><a href="#">Kannada</a></li>
 												<li class="H"><a href="#">Korean</a></li>
-											
+												
+												
+												
 											</ul>
 											
 										</div>
@@ -60,70 +63,83 @@
 						</div>				
 				
 				
+						
+						
+				
+				
 		
-			
+		
+		
+		
 		<center style="margin-top:220px;">
 					<h1>All Movie Reviews</h1>
 		</center>
 					
 			
-					<table>
-						<tr>
+		
+		<center><table id="demo"> <table class="point" id="demo2"></table> </table></center>
+
+		<script>
+				function loadXMLDoc() {
+				  var xmlhttp = new XMLHttpRequest();
+				  xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					  myFunction(this);
+					}
+				  };
+				  xmlhttp.open("GET", "cd_catalog.xml", true);
+				  xmlhttp.send();
+				}
+				function myFunction(xml) {
+				  var i;
+				  var xmlDoc = xml.responseXML;
+				  var table="";
+				  var table2="";
+				  var x = xmlDoc.getElementsByTagName("movieInfo");
+				  var Image;
+				  for (i = 0; i <x.length; i++) { 
+					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
 					
-							<td   class='images'><a href="#"><img src="Photo/premam.jpg" width='100%' height='150px'></a> <br>
-								<center>
-								<p>Premam</p>
-								</center>
-							</td>
+					table2 += "<tr><td class='images'>" +
+					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
+					"</td><td>" +
+					
+					"<br> <br>"+
+					 "<tr><td class='name'>Name</td><td class='disname'> : " +
+					x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Director</td><td class='disname'> : " +
+					x[i].getElementsByTagName("Dname")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Cast</td><td class='disname'> : " + 
+					x[i].getElementsByTagName("cast")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'> Release Date</td><td class='disname'> : " +
+					x[i].getElementsByTagName("releaseDate")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Category</td><td class='disname'> : " +
+					x[i].getElementsByTagName("category")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Genre</td><td class='disname'> : " +
+					x[i].getElementsByTagName("genre")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>IMDB</td><td class='disname'> : " +
+					x[i].getElementsByTagName("imdb")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td valign='top' class='name'>Description</td><td class='disname'> : " +
+					x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
+					"<br> <br> <br> <br> <br> <hr>"+
+					"</td></tr></td></tr> ";
 					
 					
-							<td>
-							<div class="point">
-							<table>
-								<tr>
-									<td class="name">Name</td>
-									<td class="disname"> : premam</td>
-								</tr>
-								<tr>
-									<td class="name">Director</td>
-									<td class="disname"> : Alphunse Pothin</td>
-								</tr>
-								<tr>
-									<td class="name">Cast</td>
-									<td class="disname"> : Ninin Pauly, Sai pallabi</td>
-								</tr>
-								<tr>
-									<td class="name">Relase Date</td>
-									<td class="disname"> : 29th june 2015</td>
-								</tr>
-								<tr>
-									<td class="name">Category</td>
-									<td class="disname"> : Malayalam</td>
-								</tr>
-								<tr>
-									<td class="name">Genre</td>
-									<td class="disname"> : Romantic, Comedy, Drama</td>
-								</tr>
-								
-								<tr>
-									<td class="name">IMDB</td>
-									<td class="disname"> : 8.5</td>
-								</tr>
-								
-								<tr>
-									<td valign="top" class="name">Description</td>
-									<td class="disname"> : premam I m remarkably stingy with my 10/10 ratings. I’ll be the first person to acknowledge this. Of the roughly 2600 titles I’ve rated on here, only 34 have a 10. Parasite is one of them. if this isn’t a masterpiece, then I don’t know what is. 
-									I’m going to keep it vague on the plot-front, because I didn’t know anything about it going in, and was really excited to see it progress and unfold in satisfying , unexpected ways. What I will say is that this film, more than just about any other I’ve seen, put me 
-									through so many different emotional states during its 132-minute runtime, and did so without ever feeling muddled tonally inconsistent. Parts of this movie were hilarious. Parts were heartbreaking. other parts of this I’ve felt this close to the edge of my seat since 
-									the final season of breaking bad, way back. I’m stumped to come up with any flaw for this movie. and sure, I’ve seen many movies from every single member of its cast. All the characters are understandable and sympathetic. It’s extremely entertaining, thoroughly moving 
-									in so close to technically perfect. there’s a ton of social commentary and some heavy themes to chew on once the movie’s over. Catch this one when you can and believe the hype. Joon-Ho Bong has made many great films, but this even manages to stand head and shoulders above all the others.
-									When it comes time to consider what the best film of the 2010s was, this one will surely be up there</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-			
+					
+				  }
+				  document.getElementById("demo").innerHTML = table;
+				  document.getElementById("demo2").innerHTML = table2
+				  
+				  
+				}
+			window.onload = loadXMLDoc();
+		</script>
+					
+					
+		
+		
+		
+		
 		<center><h2>Still Under Maintainance</h2></center>
 		
 
@@ -135,3 +151,4 @@
 
 
 </html>
+
