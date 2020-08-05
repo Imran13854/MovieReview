@@ -30,7 +30,7 @@ ul li.H a:hover{
 
 .search{
 	position:absolute;
-	top:9%;
+	top:60px;
 	left:90%;
 	transform:translate(-50%,-50%);
 
