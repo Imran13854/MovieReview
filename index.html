@@ -11,6 +11,9 @@
 	
 	
 	<body>
+	
+	
+	
 	<header>
 		
 		<form>
@@ -35,8 +38,7 @@
 							</ul>
 						</div>
 			
-			<center><p style="margin-top:200px;color:White;" id="text" ><b></b></p></center>
-				
+				<center><p style="margin-top:200px;color:White;"  id="text" ><b>  </b></p></center>
 			<div class="spotlight-box">
 			
 					<center><h3>In Spotlight</h3></center>
@@ -131,20 +133,26 @@
 		
 	
 		</form>
-		<center>&copy; Copyright 2020 Movie review site</center>
+		<center>&copy; Copyright 2020 Movie review site by <a href="facebook.com/imranalwayz" target="_blank" style="text-decoration: none;">Imran Hossain</a></center>
 		</header>
-		
-		<script type="text/javascript">
+	
+	</body>
+
+	<script>
+			//window.onload = message();
+	</script>
+	
+	
+	
+	<script type="text/javascript">
 		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 		var element = document.getElementById('text');
 		if (isMobile) {
   			element.innerHTML = "Please turn on desktop mode from your browser settings for better experience!";
 		} else {
-			element.innerHTML = " Thanks for Visiting!";
+			element.innerHTML = ' Thank for Visiting! ';
+			//element.innerHTML = ' Thank for Visiting! <a href="facebook.com/imranalwayz" target="_blank" style="text-decoration: none;">Imran Hossain</a>';
 		}
 	</script>
-	</body>
-
-
 
 </html>
