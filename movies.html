@@ -168,9 +168,9 @@
 				  var x = xmlDoc.getElementsByTagName("movieInfo");
 				  var Image;
 				  var Name;
-				  for (i = 0; i <x.length; i++) { 
+				   for (i = x.length-1; i >=0; i--) { 
 					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
-					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue
+					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
 					
 					table2 += "<tr><td class='images'>" +
 					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
@@ -218,12 +218,13 @@
 		
 		
 		
-		
+		<br> <br> <br> <br> <br> <br> <br> <br>
 		<center><h2>Still Under Maintainance</h2></center>
+			
 		
-
 		</form>
-		<center>&copy; Copyright 2020 Movie review site</center>
+		<center>&copy; Copyright 2020 Movie review site by <a href="facebook.com/imranalwayz" target="_blank" style="text-decoration: none;">Imran Hossain</a></center>
+		<br> <br> <br>
 		</header>
 	</body>
 
