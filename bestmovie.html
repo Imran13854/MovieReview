@@ -32,6 +32,7 @@
 				  var table2="";
 				  var str;
 				  var count=0;
+				  var im=0;
 				  
 				  var xmlDoc = xml.responseXML;
 				  var key = document.getElementById('searchTF');
@@ -82,7 +83,12 @@
 					
 					}
 					count-=1;
+					im-=1;
 					}
+					else{
+					im+=1;
+					}
+					
 					}
 					else{
 					   count+=1;
@@ -90,7 +96,7 @@
 				  
 					
 				  }
-				   if(count== x.length){
+				   if(count== x.length || im==x.length){
 					   table += "<tr><td>" +
 						"<center><h2>Sorry,No Movie Found<h2></center>" +
 						
