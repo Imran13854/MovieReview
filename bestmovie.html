@@ -32,7 +32,6 @@
 				  var table2="";
 				  var str;
 				  var count=0;
-				  var im=0;
 				  
 				  var xmlDoc = xml.responseXML;
 				  var key = document.getElementById('searchTF');
@@ -44,14 +43,15 @@
 				  
 				  str = x[i].getElementsByTagName("name")[0];
 				  txtValue = str.textContent || str.innerText;
+				  Imdb= x[i].getElementsByTagName("imdb")[0].childNodes[0].nodeValue;
+					if(Imdb >= 8){
 				  if(txtValue.toUpperCase().indexOf(filter) > -1){ 
 					/*table2 += "<tr><td>" +
 						txtValue +
 						
 						
 						"</td></tr>";*/
-					Imdb= x[i].getElementsByTagName("imdb")[0].childNodes[0].nodeValue;
-					if(Imdb >= 8){				    
+									    
 					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
 					if(Name == txtValue)
 					{
@@ -83,11 +83,8 @@
 					
 					}
 					count-=1;
-					im-=1;
 					}
-					else{
-					im+=1;
-					}
+					
 					
 					}
 					else{
@@ -96,7 +93,7 @@
 				  
 					
 				  }
-				   if(count== x.length || im==x.length){
+				   if(count== x.length || count >1){
 					   table += "<tr><td>" +
 						"<center><h2>Sorry,No Movie Found<h2></center>" +
 						
