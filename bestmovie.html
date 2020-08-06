@@ -8,6 +8,87 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<script>
+				function industry(val) {
+				  var xmlhttp = new XMLHttpRequest();
+				  xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					  industryFunc(this,val);
+					}
+				  };
+				  xmlhttp.open("GET", "cd_catalog.xml", true);
+				  xmlhttp.send();
+				}
+				function industryFunc(xml,val) {
+				
+				  var i;
+				  var xmlDoc = xml.responseXML;
+				  var table="";
+				  var table2="";
+				  var x = xmlDoc.getElementsByTagName("movieInfo");
+				  var Image;
+				  var Name;
+				  var ind;
+				  var Imdb;
+				  var count=0;
+				   for (i = x.length-1; i >=0; i--) { 
+					Image=x[i].getElementsByTagName('image')[0].childNodes[0].nodeValue;
+					Name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+					ind= x[i].getElementsByTagName("category")[0].childNodes[0].nodeValue;
+					Imdb= x[i].getElementsByTagName("imdb")[0].childNodes[0].nodeValue;
+					
+					if(Imdb > 8){
+					if(ind==val){
+					
+					table2 += "<tr><td class='images'>" +
+					"<a href='#'><img width='200' height='200'  src='"+Image+"'></a>" +
+					"</td><td>" +
+					 
+					"<br> <br>"+
+					 "<tr><td class='name'>Name</td><td class='disname'> : " +
+					 Name +
+					"</td></tr><tr><td class='name'>Director</td><td class='disname'> : " +
+					x[i].getElementsByTagName("Dname")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Cast</td><td class='disname'> : " + 
+					x[i].getElementsByTagName("cast")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'> Release Date</td><td class='disname'> : " +
+					x[i].getElementsByTagName("releaseDate")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>Category</td><td class='disname'> : " +
+					 ind +
+					"</td></tr><tr><td class='name'>Genre</td><td class='disname'> : " +
+					x[i].getElementsByTagName("genre")[0].childNodes[0].nodeValue +
+					"</td></tr><tr><td class='name'>IMDB</td><td class='disname'> : " +
+					 Imdb +
+					"</td></tr><tr><td valign='top' class='name'>Description</td><td class='disname'> : " +
+					x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
+					"<br> <br> <br> <br> <br> <hr>"+
+					"</td></tr></td></tr> ";
+					count-=1;
+					}
+					}
+					else{
+					count+=1;
+					}
+					
+				  }
+				  if(count==x.length || count >1){
+					
+					table2 += "<tr><td>" +
+						"<center><h2>Sorry, '"+val+"'  Movies are not available now! <h2></center>"
+						
+						
+						"</td></tr>";
+					}
+				  document.getElementById("demo").innerHTML = table;
+				  document.getElementById("demo2").innerHTML = table2;
+				  
+				  
+				}
+			
+		</script>
+		
+		
+		
+		<script>
 			function search()
 			{
 				var xhttp = new XMLHttpRequest();
@@ -150,13 +231,13 @@
 									<td width="100%">
 										<div>
 											<ul class="cat">
-												<li class="H"><a href="#">Hindi</a></li>
-												<li class="H"><a href="#">English</a></li>
-												<li class="H"><a href="#">Tamil</a></li>
-												<li class="H"><a href="#">Telugu</a></li>
-												<li class="H"><a href="#">Malayalam</a></li>
-												<li class="H"><a href="#">Kannada</a></li>
-												<li class="H"><a href="#">Korean</a></li>
+												<li class="H"><a href="#Hindi" onclick="industry('Hindi')">Hindi</a></li>
+												<li class="H"><a href="#English" onclick="industry('English')">English</a></li>
+												<li class="H"><a href="#Tamil" onclick="industry('Tamil')">Tamil</a></li>
+												<li class="H"><a href="#Telugu" onclick="industry('Telugu')">Telugu</a></li>
+												<li class="H"><a href="#Malayalam" onclick="industry('Malayalam')">Malayalam</a></li>
+												<li class="H"><a href="#Kannada" onclick="industry('Kannada')">Kannada</a></li>
+												<li class="H"><a href="#Korean" onclick="industry('Korean')">Korean</a></li>
 												
 												
 												
@@ -244,7 +325,7 @@
 			
 						
 			<div class="search">
-		<input type='text' class="search-text" onkeyup='search()' autocomplete='off' name='searchTF' id='searchTF' placeholder='Search Movie Name,No Enter Press'>
+		<input type='text' class="search-text" onkeyup='search()' autocomplete='off' name='searchTF' id='searchTF' placeholder='Search By Movie Name'>
 		
 		</div>	
 	
