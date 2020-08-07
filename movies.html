@@ -252,13 +252,7 @@
 		
 		
 		<center style="margin-top:220px;">
-			<div class="msc">
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-			   All Movie Reviews
-			</div>
+			   <h1>All Movie Reviews</h1>
 		</center>
 					
 			
@@ -266,7 +260,7 @@
 		<center><table id="demo"> <table class="point" id="demo2"></table> </table></center>
 
 		<script>
-				
+				function loadXMLDoc() {
 				  var xmlhttp = new XMLHttpRequest();
 				  xmlhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
@@ -275,7 +269,7 @@
 				  };
 				  xmlhttp.open("GET", "movie_list.xml", true);
 				  xmlhttp.send();
-				
+				}
 				function myFunction(xml) {
 				  var i;
 				  var xmlDoc = xml.responseXML;
@@ -320,7 +314,7 @@
 				  
 				  
 				}
-			
+			window.onload = loadXMLDoc();
 		</script>
 					
 			<div class="search">
