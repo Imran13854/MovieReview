@@ -4,10 +4,8 @@ body{
 }
 header{
 	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Photo/cover5.jpg);
-	background-repeat: no-repeat;
-	height:35vh;
-	background-position: center;
-	background-size: cover;
+	height:220px;
+	width: 100%;
 }
 
 #h{
