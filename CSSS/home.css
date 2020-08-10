@@ -192,3 +192,13 @@ ul li.inactive a:hover{
 	transform:translate(-50%,-50%);
 	
 }
+
+.hitCounter{
+	position:absolute;
+	
+	font-weight:BOLD;
+	top:6%;
+	left:96%;
+	transform:translate(-50%,-50%);
+	
+}
