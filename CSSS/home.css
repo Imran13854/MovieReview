@@ -60,7 +60,7 @@ ul li a{
 	color:white;
 	padding:5px 20px;
 	border:1px solid transparent;
-	
+	transition: .8s ease;
 	background-color:white;
 	color:black;
 	border-radius:5px;
